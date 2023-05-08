@@ -8,3 +8,7 @@ In this game I use
 -Destroy function to delete the snake and reset the game
 
 # ScreenShots
+
+
+https://user-images.githubusercontent.com/122546743/236896960-6fd0b309-e086-4657-b4ff-a62a7ce808cc.mp4
+
