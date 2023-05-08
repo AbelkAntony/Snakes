@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
+
     private Vector2 _direction = Vector2.right;
 
     private List<Transform> _segments;
 
+    [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
     private void Start()
     {
@@ -64,6 +66,7 @@ public class Snake : MonoBehaviour
         _segments.Add(this.transform);
 
         this.transform.position = Vector3.zero;
+        this.gameManager.ResetScore();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

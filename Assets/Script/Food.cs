@@ -5,7 +5,7 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     [SerializeField] BoxCollider2D gridArea;
-
+    [SerializeField] GameManager gameManager;
     private void Start()
     {
         RandomizePosition();
@@ -27,6 +27,9 @@ public class Food : MonoBehaviour
         if(other.tag == "Player")
         {
             RandomizePosition();
+            gameManager.AddScore();
         }
     }
+
+
 }
