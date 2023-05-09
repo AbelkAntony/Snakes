@@ -11,6 +11,7 @@ public class Snake : MonoBehaviour
 
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
+    [SerializeField] BoxCollider2D wall;
     private void Start()
     {
         _segments = new List<Transform>();
