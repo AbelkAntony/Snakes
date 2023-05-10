@@ -8,7 +8,7 @@ public class ScreenWrapper : MonoBehaviour
     float rightConstraint = Screen.width;
     float topConstraint = Screen.height;
     float bottomConstraint = Screen.height;
-    float bufffer = 1.0f;
+    float buffer = 1.0f;
     Camera cam;
     float distanceZ;
 
@@ -24,26 +24,26 @@ public class ScreenWrapper : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(transform.position.x < leftConstraint - bufffer)
+        if (transform.position.x < leftConstraint - buffer)
         {
-            transform.position = new Vector3(rightConstraint - 0.10f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(rightConstraint, transform.position.y, transform.position.z);
 
         }
-        if (transform.position.x > rightConstraint - bufffer)
+        if (transform.position.x > rightConstraint + buffer)
         {
-            transform.position = new Vector3(rightConstraint , transform.position.y, transform.position.z);
-
-        }
-
-        if (transform.position.y < bottomConstraint - bufffer)
-        {
-            transform.position = new Vector3(transform.position.x, topConstraint + bufffer, transform.position.z);
+            transform.position = new Vector3(leftConstraint , transform.position.y, transform.position.z);
 
         }
 
-        if (transform.position.y > topConstraint + bufffer)
+        if (transform.position.y < bottomConstraint - buffer)
         {
-            transform.position = new Vector3(transform.position.x, bottomConstraint - bufffer, transform.position.z);
+            transform.position = new Vector3(transform.position.x, topConstraint + buffer, transform.position.z);
+
+        }
+
+        if (transform.position.y > topConstraint + buffer)
+        {
+            transform.position = new Vector3(transform.position.x, bottomConstraint - buffer, transform.position.z);
 
         }
 
