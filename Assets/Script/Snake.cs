@@ -11,7 +11,6 @@ public class Snake : MonoBehaviour
 
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
-    [SerializeField] BoxCollider2D wall;
     private void Start()
     {
         _segments = new List<Transform>();
@@ -74,6 +73,10 @@ public class Snake : MonoBehaviour
         if(other.tag == "Food")
         {
             Grow();
+        }
+        else if(other.tag == "GridArea")
+        {
+
         }
         else
         {
