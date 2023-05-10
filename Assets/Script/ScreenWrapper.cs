@@ -10,40 +10,38 @@ public class ScreenWrapper : MonoBehaviour
     float bottomConstraint = Screen.height;
     float buffer = 1.0f;
     Camera cam;
-    float distanceZ;
 
     private void Start()
     {
         cam = Camera.main;
-        distanceZ = Mathf.Abs(cam.transform.position.z + transform.position.z);
-        leftConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, distanceZ)).x;
-        rightConstraint = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, distanceZ)).x;
-        bottomConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, distanceZ)).y;
-        topConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, Screen.height, distanceZ)).y;
+        leftConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f)).x;
+        rightConstraint = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f)).x;
+        bottomConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f)).y;
+        topConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, Screen.height, 0.0f)).y;
     }
 
     private void FixedUpdate()
     {
-        if (transform.position.x < leftConstraint - buffer)
+        if (transform.position.x < leftConstraint) 
         {
-            transform.position = new Vector3(rightConstraint, transform.position.y, transform.position.z);
+            transform.position = new Vector3(rightConstraint, transform.position.y, 0.0f);
 
         }
-        if (transform.position.x > rightConstraint + buffer)
+        if (transform.position.x > rightConstraint)
         {
-            transform.position = new Vector3(leftConstraint , transform.position.y, transform.position.z);
+            transform.position = new Vector3(leftConstraint , transform.position.y, 0.0f);
 
         }
 
         if (transform.position.y < bottomConstraint - buffer)
         {
-            transform.position = new Vector3(transform.position.x, topConstraint + buffer, transform.position.z);
+            transform.position = new Vector3(transform.position.x, topConstraint , 0.0f);
 
         }
 
         if (transform.position.y > topConstraint + buffer)
         {
-            transform.position = new Vector3(transform.position.x, bottomConstraint - buffer, transform.position.z);
+            transform.position = new Vector3(transform.position.x, bottomConstraint , 0.0f);
 
         }
 
