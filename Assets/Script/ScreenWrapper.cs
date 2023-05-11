@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ScreenWrapper : MonoBehaviour
 {
-    float leftConstraint = Screen.width;
-    float rightConstraint = Screen.width;
-    float topConstraint = Screen.height;
-    float bottomConstraint = Screen.height;
+    float leftConstraint;
+    float rightConstraint;
+    float topConstraint;
+    float bottomConstraint;
     float buffer = 1.0f;
     Camera cam;
 
