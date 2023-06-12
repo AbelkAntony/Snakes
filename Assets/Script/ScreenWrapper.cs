@@ -24,12 +24,12 @@ public class ScreenWrapper : MonoBehaviour
     {
         if (transform.position.x < leftConstraint) 
         {
-            transform.position = new Vector3(rightConstraint, transform.position.y, 0.0f);
+            transform.position = new Vector3(rightConstraint - 2f, transform.position.y , 0.0f);
 
         }
-        if (transform.position.x > rightConstraint)
+        if (transform.position.x > rightConstraint )
         {
-            transform.position = new Vector3(leftConstraint , transform.position.y, 0.0f);
+            transform.position = new Vector3(leftConstraint  + 2f, transform.position.y , 0.0f);
 
         }
 
