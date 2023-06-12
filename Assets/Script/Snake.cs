@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
-    private float timer = 0;
-    private float timeIntervel = 0.06f;
     private Vector2 _direction = Vector2.right;
 
     private List<Transform> _segments;
 
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
+    [SerializeField] OrbController orb;
     private void Start()
     {
         Time.timeScale = 1f ;
@@ -80,13 +79,14 @@ public class Snake : MonoBehaviour
         {
             Grow();
         }
-        else if(other.tag == "GridArea")
-        {
-
-        }
-        else
+        else if(other.tag == "Player")
         {
             ResetState();
+        }
+        else if(other.name == "Speed Orb")
+        {
+            Time.timeScale = 2f;
+            orb.OrbStatus(false);
         }
     }
 }

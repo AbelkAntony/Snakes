@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
+
+
     public int score;
     [SerializeField] Text scoreText;
+    [SerializeField] BoxCollider2D gridArea;
 
+
+    private Vector3 randomPosition;
     private void Start()
     {
         ResetScore();
@@ -27,4 +32,18 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+
+    public Vector3 RandomizePosition()
+    {
+        Bounds bounds = this.gridArea.bounds;
+
+        float x = Random.Range(bounds.min.x, bounds.max.x);
+        float y = Random.Range(bounds.min.y, bounds.max.y);
+
+        randomPosition = new Vector3(Mathf.Round(x), Mathf.Round(y), 0.0f);
+        return randomPosition;
+    }
+
+
 }
