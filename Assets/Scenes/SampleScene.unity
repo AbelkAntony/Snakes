@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 965011228}
   segmantPrefab: {fileID: 8045716949674524749, guid: 5f3241781effe7345949905d9930ab3e, type: 3}
+  orb: {fileID: 1797537577}
 --- !u!114 &254903411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,6 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 1404502082}
+  gridArea: {fileID: 590203677}
 --- !u!4 &965011229
 Transform:
   m_ObjectHideFlags: 0
@@ -734,7 +736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be00a26a5d97dde4ea0aded5d99537d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridArea: {fileID: 590203677}
   gameManager: {fileID: 965011228}
 --- !u!1 &1404502080
 GameObject:
@@ -871,6 +872,7 @@ GameObject:
   - component: {fileID: 1749598602}
   - component: {fileID: 1749598601}
   - component: {fileID: 1749598600}
+  - component: {fileID: 1749598603}
   m_Layer: 0
   m_Name: Speed Orb
   m_TagString: Orb
@@ -961,6 +963,19 @@ Transform:
   m_Father: {fileID: 1797537578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1749598603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749598599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf03d815de1287f4a9f7a906c044b0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 965011228}
 --- !u!1 &1797537576
 GameObject:
   m_ObjectHideFlags: 0

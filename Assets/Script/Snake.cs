@@ -8,6 +8,8 @@ public class Snake : MonoBehaviour
 
     private List<Transform> _segments;
 
+    private float activeTime = 5f;
+
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
     [SerializeField] OrbController orb;
@@ -36,6 +38,10 @@ public class Snake : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             _direction = Vector2.left;
+        }
+        if(Time.time > activeTime)
+        {
+            ResetOrb();
         }
     }
 
@@ -86,7 +92,12 @@ public class Snake : MonoBehaviour
         else if(other.name == "Speed Orb")
         {
             Time.timeScale = 2f;
+            activeTime = Time.time + 5f;
             orb.OrbStatus(false);
         }
+    }
+    void ResetOrb()
+    {
+        Time.timeScale = 1f;
     }
 }

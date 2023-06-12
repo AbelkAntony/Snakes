@@ -8,6 +8,7 @@ public class OrbController : MonoBehaviour
     [SerializeField] GameObject uiSpeedOrb;
 
     private float timeIntervel = 5f;
+    
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class OrbController : MonoBehaviour
     {
         if(timeIntervel < Time.time )
         {
-            timeIntervel = timeIntervel + 10;
+            timeIntervel = timeIntervel + 20;
             OrbStatus(true);
         }
     }
