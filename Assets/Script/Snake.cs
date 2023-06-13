@@ -10,6 +10,8 @@ public class Snake : MonoBehaviour
 
     private float activeTime = 5f;
 
+    private bool passThrough = false;
+
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
     [SerializeField] OrbController orb;
@@ -87,17 +89,26 @@ public class Snake : MonoBehaviour
         }
         else if(other.tag == "Player")
         {
-            ResetState();
+            if (passThrough) { }
+            else 
+                ResetState();
         }
         else if(other.name == "Speed Orb")
         {
             Time.timeScale = 2f;
             activeTime = Time.time + 5f;
-            orb.OrbStatus(false);
+            orb.OrbStatus(1,false);
+        }
+        else if(other.name == "Pass Through Orb")
+        {
+            activeTime = Time.time + 5f;
+            passThrough = true;
+            orb.OrbStatus(2, false);
         }
     }
     void ResetOrb()
     {
+        passThrough = false;
         Time.timeScale = 1f;
     }
 }

@@ -6,14 +6,19 @@ public class OrbController : MonoBehaviour
 {
     [SerializeField] GameObject speedOrb;
     [SerializeField] GameObject uiSpeedOrb;
+    [SerializeField] GameObject passOrb;
+    [SerializeField] GameObject uiPassOrb;
 
-    private float timeIntervel = 5f;
+    float timeIntervel = 5f;
+    int option;
     
 
     private void Awake()
     {
         speedOrb.SetActive(false);
         uiSpeedOrb.SetActive(false);
+        passOrb.SetActive(false);
+        uiPassOrb.SetActive(false);
     }
 
     private void Update()
@@ -21,13 +26,24 @@ public class OrbController : MonoBehaviour
         if(timeIntervel < Time.time )
         {
             timeIntervel = timeIntervel + 20;
-            OrbStatus(true);
+            option = Random.Range(1, 3);
+            OrbStatus(option,true);
         }
     }
-    public void OrbStatus(bool status)
+    public void OrbStatus(int option ,bool status)
     {
-        speedOrb.SetActive(status);
-        uiSpeedOrb.SetActive(status);
+        switch(option)
+        {
+            case 1:
+                speedOrb.SetActive(status);
+                uiSpeedOrb.SetActive(status);
+                break;
+            case 2:
+                passOrb.SetActive(status);
+                uiPassOrb.SetActive(status);
+                break;
+        }
+        
     }
 
 
