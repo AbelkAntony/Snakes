@@ -6,6 +6,8 @@ In this game I use
 -Bound to get the food swan boundaries
 -Transform list to save the position and get the position of head and others parts of the Snake
 -Destroy function to delete the snake and reset the game
+-Speed Orb to increase the speed of the snake for certain seconds
+-Pass Through Orb to pass over the snake itself
 
 # ScreenShots
 
