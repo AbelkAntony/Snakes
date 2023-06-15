@@ -13,6 +13,7 @@ public class OrbController : MonoBehaviour
     [SerializeField] GameObject slowOrb;
     [SerializeField] GameObject uiSlowOrb;
 
+    float deactiveTime;
     float timeIntervel = 5f;
     int option;
     
@@ -26,9 +27,14 @@ public class OrbController : MonoBehaviour
     {
         if(timeIntervel < Time.time )
         {
+            deactiveTime = timeIntervel + 8;
             timeIntervel = timeIntervel + 20;
             option = Random.Range(1, 5);
             OrbStatus(option,true);
+        }
+        else if(Time.time > deactiveTime)
+        {
+            OrbStatus(false);
         }
     }
     public void OrbStatus(int option ,bool status)

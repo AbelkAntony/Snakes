@@ -99,7 +99,7 @@ public class Snake : MonoBehaviour
         else if(other.name == "Speed Orb")
         {
             Time.timeScale = 2f;
-            activeTime = Time.time + 5f;
+            activeTime = Time.time + 10f;
             orb.OrbStatus(1,false);
         }
         else if(other.name == "Pass Through Orb")
@@ -113,6 +113,12 @@ public class Snake : MonoBehaviour
             activeTime = Time.time + 5f;
             scoreKillIsActive = true;
             orb.OrbStatus(3, false);
+        }
+        else if(other.name=="Slow Orb")
+        {
+            Time.timeScale = 0.5f;
+            activeTime = Time.time + 2.5f;
+            orb.OrbStatus(1, false);
         }
     }
     void ResetOrb()
