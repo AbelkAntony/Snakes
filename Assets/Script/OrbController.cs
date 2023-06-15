@@ -8,6 +8,10 @@ public class OrbController : MonoBehaviour
     [SerializeField] GameObject uiSpeedOrb;
     [SerializeField] GameObject passOrb;
     [SerializeField] GameObject uiPassOrb;
+    [SerializeField] GameObject scoreKillOrb;
+    [SerializeField] GameObject uiScoreKillOrb;
+    [SerializeField] GameObject slowOrb;
+    [SerializeField] GameObject uiSlowOrb;
 
     float timeIntervel = 5f;
     int option;
@@ -15,10 +19,7 @@ public class OrbController : MonoBehaviour
 
     private void Awake()
     {
-        speedOrb.SetActive(false);
-        uiSpeedOrb.SetActive(false);
-        passOrb.SetActive(false);
-        uiPassOrb.SetActive(false);
+        OrbStatus(false);
     }
 
     private void Update()
@@ -42,9 +43,27 @@ public class OrbController : MonoBehaviour
                 passOrb.SetActive(status);
                 uiPassOrb.SetActive(status);
                 break;
+            case 3:
+                scoreKillOrb.SetActive(status);
+                uiScoreKillOrb.SetActive(status);
+                break;
+            case 4:
+                slowOrb.SetActive(status);
+                uiSlowOrb.SetActive(status);
+                break;
         }
         
     }
-
+    private void OrbStatus(bool status)
+    {
+        speedOrb.SetActive(status);
+        passOrb.SetActive(status);
+        scoreKillOrb.SetActive(status);
+        slowOrb.SetActive(status);
+        uiSpeedOrb.SetActive(status);
+        uiPassOrb.SetActive(status);
+        uiSpeedOrb.SetActive(status);
+        uiSlowOrb.SetActive(status);
+    }
 
 }
