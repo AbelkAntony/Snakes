@@ -27,7 +27,7 @@ public class OrbController : MonoBehaviour
         if(timeIntervel < Time.time )
         {
             timeIntervel = timeIntervel + 20;
-            option = Random.Range(1, 3);
+            option = Random.Range(1, 5);
             OrbStatus(option,true);
         }
     }
@@ -62,7 +62,7 @@ public class OrbController : MonoBehaviour
         slowOrb.SetActive(status);
         uiSpeedOrb.SetActive(status);
         uiPassOrb.SetActive(status);
-        uiSpeedOrb.SetActive(status);
+        uiScoreKillOrb.SetActive(status);
         uiSlowOrb.SetActive(status);
     }
 

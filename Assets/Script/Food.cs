@@ -17,7 +17,6 @@ public class Food : MonoBehaviour
         if(other.tag == "Player")
         {
             this.transform.position = gameManager.RandomizePosition();
-            gameManager.AddScore();
         }
     }
 

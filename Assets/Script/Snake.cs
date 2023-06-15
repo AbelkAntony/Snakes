@@ -12,6 +12,8 @@ public class Snake : MonoBehaviour
 
     private bool passThrough = false;
 
+    private bool scoreKillIsActive = false;
+
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
     [SerializeField] OrbController orb;
@@ -86,6 +88,7 @@ public class Snake : MonoBehaviour
         if(other.tag == "Food")
         {
             Grow();
+            gameManager.AddScore(scoreKillIsActive);
         }
         else if(other.tag == "Player")
         {
@@ -105,9 +108,16 @@ public class Snake : MonoBehaviour
             passThrough = true;
             orb.OrbStatus(2, false);
         }
+        else if(other.name == "Score Kill Orb")
+        {
+            activeTime = Time.time + 5f;
+            scoreKillIsActive = true;
+            orb.OrbStatus(3, false);
+        }
     }
     void ResetOrb()
     {
+        scoreKillIsActive = false;
         passThrough = false;
         Time.timeScale = 1f;
     }

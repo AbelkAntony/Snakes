@@ -25,9 +25,14 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void AddScore()
+    public void AddScore(bool scoreKillIsActive)
     {
-        this.score++;
+        if(scoreKillIsActive)
+            this.score = score - 2;
+        else
+            this.score++;
+
+
         scoreText.text = score.ToString();
 
 
