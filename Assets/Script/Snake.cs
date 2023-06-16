@@ -14,6 +14,7 @@ public class Snake : MonoBehaviour
 
     private bool scoreKillIsActive = false;
 
+
     [SerializeField] GameManager gameManager;
     [SerializeField] Transform segmantPrefab;
     [SerializeField] OrbController orb;
@@ -64,13 +65,38 @@ public class Snake : MonoBehaviour
 
     private void Grow()
     {
-        Transform segment =  Instantiate(this.segmantPrefab);
-        segment.position = _segments[_segments.Count - 1].position;
+        if(scoreKillIsActive)
+        {
+           /* if (gameManager.GetScore() <= 2)
+            {
+                ResetState(this.transform.position);
+                gameManager.SetScore(0);
+            }
+            else
+            {
+                for (int i = _segments.Count - 1; i > _segments.Count - 3; i--)
+                {
+                    Destroy(_segments[i].gameObject);
+                }
 
-        _segments.Add(segment);
+                _segments.Add(this.transform);
+
+            }
+*/
+
+
+        }
+        else
+        {
+            Transform segment = Instantiate(this.segmantPrefab);
+            segment.position = _segments[_segments.Count - 1].position;
+
+            _segments.Add(segment);
+        }
+        
     }
 
-    private void ResetState()
+    private void ResetState(Vector3 position)
     {
         for (int i=1; i< _segments.Count; i++)
         {
@@ -80,7 +106,7 @@ public class Snake : MonoBehaviour
         _segments.Clear();
         _segments.Add(this.transform);
 
-        this.transform.position = Vector3.zero;
+        this.transform.position = position;
         this.gameManager.ResetScore();
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -94,7 +120,7 @@ public class Snake : MonoBehaviour
         {
             if (passThrough) { }
             else 
-                ResetState();
+                ResetState(Vector3.zero);
         }
         else if(other.name == "Speed Orb")
         {
@@ -118,7 +144,7 @@ public class Snake : MonoBehaviour
         {
             Time.timeScale = 0.5f;
             activeTime = Time.time + 2.5f;
-            orb.OrbStatus(1, false);
+            orb.OrbStatus(4, false);
         }
     }
     void ResetOrb()

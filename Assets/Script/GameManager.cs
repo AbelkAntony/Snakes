@@ -28,7 +28,10 @@ public class GameManager : MonoBehaviour
     public void AddScore(bool scoreKillIsActive)
     {
         if(scoreKillIsActive)
-            this.score = score - 2;
+        {
+            if(score<2)
+                this.score = score - 2;
+        }
         else
             this.score++;
 
@@ -50,5 +53,12 @@ public class GameManager : MonoBehaviour
         return randomPosition;
     }
 
-
+    public int GetScore()
+    {
+        return score;
+    }
+    public void SetScore(int _score)
+    {
+        this.score = _score;
+    }
 }
