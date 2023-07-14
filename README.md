@@ -8,6 +8,9 @@ In this game I use
 - Destroy function to delete the snake and reset the game
 - Speed Orb to increase the speed of the snake for certain seconds
 - Pass Through Orb to pass over the snake itself
+- Score will me deducted for a while after eating Score kill Orb
+- Movement speed of the snake decrease after eating Slow Orb
+- If the snake did not eat orb the orb will disappear after few seconds
 
 # ScreenShots
 
